@@ -2,7 +2,7 @@
   "name": "innova-connect-avaliacao",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon main",
