@@ -13,6 +13,7 @@
             "warn",
             "ignorePackages"
         ],
+        "global-require": "off",
         "max-len": [
             "warn",
             {
