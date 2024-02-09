@@ -21,7 +21,10 @@
                 "tabWidth": 2,
                 "ignoreComments": false,
                 "comments": 65,
-                "ignorePattern": "^\\s*var\\s.+=\\s*require\\s*\\("
+                "ignorePattern": [
+                    "^\\s*var\\s.+=\\s*require\\s*\\(", 
+                    "^\\s*import\\s.+\\s*from\\s*\\("
+                ]
             }
         ],
         "eqeqeq": [
