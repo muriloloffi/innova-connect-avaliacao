@@ -1,14 +1,14 @@
 export default (sequelize, Sequelize) => {
-  const Role = sequelize.define("role", {
+  const Role = sequelize.define('role', {
     id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     name: {
-      type: Sequelize.STRING
-    }
+      type: Sequelize.STRING,
+    },
   });
 
   return Role;
-}
+};
