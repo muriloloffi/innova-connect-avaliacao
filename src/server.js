@@ -18,25 +18,12 @@ app.use(
   }),
 );
 
-// function initial() {
-//   db.role.create({
-//     id: 1,
-//     name: 'USER',
-//   });
-
-//   db.role.create({
-//     id: 2,
-//     name: 'ADMIN',
-//   });
-// }
-
 // For the purpose of this job assessment, we will drop and
 // re-sync the database each time the application starts.
 // For production, only sync() is used.
 db.sequelize.sync({ force: true }).then(() => {
   // eslint-disable-next-line no-console
   console.log('Drop and re-sync db.');
-  // initial();
 });
 
 app.get('/', cors(), (req, res) => {
