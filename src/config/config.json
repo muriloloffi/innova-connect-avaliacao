@@ -1,6 +1,6 @@
 {
   "development": {
-    "storage": "./database.sqlite",
+    "storage": "./db/database.sqlite",
     "dialect": "sqlite"
   },
   "test": {

@@ -1,10 +1,13 @@
 POST http://localhost:3000/user/create HTTP/1.1
-content-type: application/json
+Content-Type: application/json
 
 {
     "name": "sample",
     "email": "teste@teste.com",
     "password": "123456",
-    "role": "ROLE_ADMIN",
+    "role": "ROLE_USER",
     "active": "true"
 }
+
+
+GET http://localhost:3000/user HTTP/1.1
