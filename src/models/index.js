@@ -1,7 +1,7 @@
-import Sequelize from 'sequelize';
-import config from '../../config/db.config.js';
-import userModel from './user.model.js';
-import roleModel from './role.model.js';
+const Sequelize = require('sequelize');
+const config = require('../../config/db.config.js');
+const userModel = require('./user.model.js');
+const roleModel = require('./role.model.js');
 
 const sequelize = new Sequelize(
   config.DB,
@@ -38,4 +38,4 @@ db.user.belongsToMany(db.role, {
 
 db.ROLES = ['user', 'admin'];
 
-export default db;
+module.exports = db;

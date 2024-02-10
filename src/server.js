@@ -1,7 +1,7 @@
-import express from 'express';
-import cors from 'cors';
-import cookieSession from 'cookie-session';
-import db from './models/index.js';
+const express = require('express');
+const cors = require('cors');
+const cookieSession = require('cookie-session');
+const db = require('./models/index.js');
 
 const app = express();
 
@@ -43,4 +43,4 @@ app.get('/', cors(), (req, res) => {
   res.status(200).json({ data: { message: 'User data' } });
 });
 
-export default app;
+module.exports = app;
