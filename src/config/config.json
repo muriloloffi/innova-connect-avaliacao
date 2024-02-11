@@ -3,7 +3,7 @@
     "storage": "./db/database.sqlite",
     "dialect": "sqlite",
     "seederStorage": "sequelize",
-    "seederStorageTableName": "SequelizeSeedData"
+    "seederStorageTableName": "sequelize_seed_data"
   },
   "test": {
     "username": "root",
