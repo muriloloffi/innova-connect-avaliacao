@@ -1,7 +1,9 @@
 {
   "development": {
     "storage": "./db/database.sqlite",
-    "dialect": "sqlite"
+    "dialect": "sqlite",
+    "seederStorage": "sequelize",
+    "seederStorageTableName": "SequelizeSeedData"
   },
   "test": {
     "username": "root",
