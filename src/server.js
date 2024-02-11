@@ -7,17 +7,20 @@ const { migrations, seeds } = require('./migrations.js');
 const app = express();
 routes(app);
 
+async function start() {
+  await migrations.up().then(() => {
+    console.log('\n -- Migrations complete --\n');
+  });
+  await seeds.up().then(() => {
+    console.log('\n -- Seeds complete --\n');
+  });
+}
+
 // For the purpose of this job assessment, we will drop and
 // re-sync the database each time the application starts.
-// For production, only sync() is used.
+// For production, sync() would be used with authentication.
 db.sequelize.sync({ force: true }).then(() => {
-  migrations.up().then(() => {
-    console.log('Migrations complete');
-    seeds.up().then(() => {
-      console.log('Seeds complete');
-    });
-  });
+  start();
 });
-// start();
 
 module.exports = app;
