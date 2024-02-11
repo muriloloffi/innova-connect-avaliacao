@@ -2,7 +2,7 @@
 const express = require('express');
 const routes = require('./routes/index.js');
 const db = require('./models/index.js');
-const { migrations, seeds } = require('./migrations.js'); 
+const { migrations, seeds } = require('./migrations.js');
 
 const app = express();
 routes(app);

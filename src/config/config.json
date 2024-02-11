@@ -2,8 +2,8 @@
   "development": {
     "storage": "./db/database.sqlite",
     "dialect": "sqlite",
-    "seederStorage": "sequelize",
-    "seederStorageTableName": "sequelize_seed_data"
+    "migrationStorageTableName": "sequelize_meta",
+    "seederStorageTableName": "sequelize_seed_meta"
   },
   "test": {
     "username": "root",

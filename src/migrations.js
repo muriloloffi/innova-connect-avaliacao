@@ -6,7 +6,10 @@ const migrationsConfig = {
     glob: 'src/migrations/*.js',
   },
   context: sequelize.getQueryInterface(),
-  storage: new SequelizeStorage({ sequelize }),
+  storage: new SequelizeStorage({
+    sequelize,
+    modelName: sequelize.options.migrationStorageTableName,
+  }),
   logger: console,
 };
 
@@ -17,8 +20,10 @@ const seedConfig = {
     glob: 'src/seeders/*.js',
   },
   context: sequelize.getQueryInterface(),
-  storage: new SequelizeStorage({ sequelize }),
-  modelName: 'SequelizeData',
+  storage: new SequelizeStorage({
+    sequelize,
+    modelName: sequelize.options.seederStorageTableName,
+  }),
   logger: console,
 };
 
