@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const express = require('express');
 const routes = require('./routes/index.js');
 const db = require('./models/index.js');
@@ -9,7 +10,6 @@ routes(app);
 // re-sync the database each time the application starts.
 // For production, only sync() is used.
 db.sequelize.sync({ force: true }).then(() => {
-  // eslint-disable-next-line no-console
   console.log('Drop and re-sync db.');
 });
 
