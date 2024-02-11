@@ -13,8 +13,8 @@ const migrationsConfig = {
   logger: console,
 };
 
-// Build the seedConfig object; Follow the example on https://github.com/sequelize/umzug/issues/24,
-// but adapt it to the version 3 of Umzug like the example above.
+// Here, I Build the seedConfig object; Following the example on https://github.com/sequelize/umzug/issues/24,
+// but adapting it to the ver. 3 of Umzug like the example above.
 const seedConfig = {
   migrations: {
     glob: 'src/seeders/*.js',

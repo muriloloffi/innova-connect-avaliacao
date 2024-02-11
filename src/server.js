@@ -18,7 +18,8 @@ async function start() {
 
 // For the purpose of this job assessment, we will drop and
 // re-sync the database each time the application starts.
-// For production, sync() would be used with authentication.
+// For production, migrations would be used with authentication.
+// Reference: https://stackoverflow.com/questions/41595755/sequelize-sync-vs-migrations
 db.sequelize.sync({ force: true }).then(() => {
   start();
 });
