@@ -2,15 +2,26 @@
 const express = require('express');
 const routes = require('./routes/index.js');
 const db = require('./models/index.js');
+const { migrations, seeds } = require('./migrations.js');
 
 const app = express();
 routes(app);
 
+async function start() {
+  await migrations.up().then(() => {
+    console.log('\n -- Migrations complete --\n');
+  });
+  await seeds.up().then(() => {
+    console.log('\n -- Seeds complete --\n');
+  });
+}
+
 // For the purpose of this job assessment, we will drop and
 // re-sync the database each time the application starts.
-// For production, only sync() is used.
+// For production, migrations would be used with authentication.
+// Reference: https://stackoverflow.com/questions/41595755/sequelize-sync-vs-migrations
 db.sequelize.sync({ force: true }).then(() => {
-  console.log('Drop and re-sync db.');
+  start();
 });
 
 module.exports = app;
