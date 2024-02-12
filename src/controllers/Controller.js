@@ -11,6 +11,16 @@ class Controller {
       return res.status(500).json({ message: error.message });
     }
   }
+
+  async create(req, res) {
+    try {
+      const newRecordData = req.body;
+      const newRecord = await this.entityService.createRecord(newRecordData);
+      return res.status(201).json(newRecord);
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
 }
 
 module.exports = Controller;

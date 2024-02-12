@@ -8,6 +8,10 @@ class Service {
   async getAllRecords() {
     return dbEntities[this.modelName].findAll();
   }
+
+  async createRecord(newRecordData) {
+    return dbEntities[this.modelName].create(newRecordData);
+  }
 }
 
 module.exports = Service;
