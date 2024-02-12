@@ -1,5 +1,3 @@
-const database = require('../models/index.js');
-
 class UserController {
   static async index(req, res) {
     try {
