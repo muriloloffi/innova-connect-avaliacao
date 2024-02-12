@@ -5,3 +5,5 @@ class UserServices extends Services {
     super('User');
   }
 }
+
+module.exports = UserServices;

@@ -1,11 +1,11 @@
-class UserController {
-  static async index(req, res) {
-    try {
-      const usersList = await database.User.findAll();
-      return res.status(200).json(usersList);
-    } catch (error) {
-      return res.status(500).json({ message: error.message });
-    }
+const Controller = require('./Controller.js');
+const UserServices = require('../services/UserServices.js');
+
+const userServices = new UserServices();
+
+class UserController extends Controller {
+  constructor() {
+    super(userServices);
   }
 
   static async create(req, res) {
