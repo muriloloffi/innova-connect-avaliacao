@@ -9,3 +9,6 @@ data input, the methods of the express-validate package were employed for
 validations and sanitizations.
 [pt-br] Para evitar requisições com conteúdo potencialmente maliciosos sejam 
 enviados pela API foi utilizado os métodos do pacote express-validate.
+
+## Testing the API
+[pt-br] Siga as instruções em [Docs](./docs/API-TESTING.md)

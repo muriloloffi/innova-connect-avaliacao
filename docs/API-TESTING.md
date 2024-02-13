@@ -13,3 +13,5 @@ de busca. Após instalar a extensão, abra um dos arquivos em docs/Requests/,
 selecione uma das _prepared requests_ com o cursor e pressione o atalho 
 `CTRL + ALT + R` ou clique no botão enviar requisição abaixo do
 _request-separator_ `###` e título.
+
+### Voltar para o [Readme](../README.md)
