@@ -7,7 +7,7 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Gym extends Model {
+  class Checkin extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -15,25 +15,21 @@ module.exports = (sequelize, DataTypes) => {
      * automatically.
      */
     static associate(models) {
-      Gym.belongsTo(models.User, {
-        foreignKey: 'UserId',
-        as: 'owner',
+      Checkin.hasOne(models.User, {
+        foreignKey: 'user_id',
+        as: 'user',
       });
-      Gym.hasMany(models.Checkin, {
+      Checkin.hasOne(models.Gym, {
         foreignKey: 'gym_id',
-        as: 'checkins',
+        as: 'gym',
       });
     }
   }
-  Gym.init({
-    name: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    phone: DataTypes.STRING,
-    coordinates: DataTypes.GEOMETRY('POINT'),
+  Checkin.init({
   }, {
     sequelize,
-    modelName: 'Gym',
-    tableName: 'gyms',
+    modelName: 'Checkin',
+    tableName: 'checkins',
   });
-  return Gym;
+  return Checkin;
 };
