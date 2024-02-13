@@ -19,7 +19,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Gym.init({
-    idCreator: DataTypes.INTEGER,
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
     phone: DataTypes.STRING,

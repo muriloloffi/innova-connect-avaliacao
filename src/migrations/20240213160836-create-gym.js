@@ -14,9 +14,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      idCreator: {
-        type: Sequelize.INTEGER,
-      },
       name: {
         type: Sequelize.STRING,
       },
@@ -39,8 +36,7 @@ module.exports = {
       },
     });
   },
-  // async down(queryInterface, Sequelize) {
   async down({ context: queryInterface }) {
-    await queryInterface.dropTable('gyms');
+    await queryInterface.dropTable('Gyms');
   },
 };
