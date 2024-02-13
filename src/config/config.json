@@ -1,5 +1,11 @@
 {
-  "development": {
+  "development-in-memory": {
+    "database": "sqlite::memory:",
+    "dialect": "sqlite",
+    "migrationStorageTableName": "sequelize_meta",
+    "seederStorageTableName": "sequelize_seed_meta"
+  },
+  "development-with-storage": {
     "storage": "./db/database.sqlite",
     "dialect": "sqlite",
     "migrationStorageTableName": "sequelize_meta",
