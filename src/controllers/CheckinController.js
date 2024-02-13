@@ -6,13 +6,12 @@ const checkinServices = new CheckinServices();
 class CheckinController extends Controller {
   constructor() {
     super(checkinServices);
-    this.checkinServices = checkinServices;
   }
 
   async create(req, res) {
     try {
       const { userId, gymId } = req.params;
-      const checkin = await this.checkinServices.createRecord(
+      const checkin = await this.entityService.createRecord(
         { user_id: userId, gym_id: gymId },
       );
       res.status(201).json(checkin);
