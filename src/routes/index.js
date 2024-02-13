@@ -3,14 +3,12 @@ const cors = require('cors');
 const cookieSession = require('cookie-session');
 const users = require('./usersRoutes.js');
 const gyms = require('./gymsRoutes.js');
-const checkins = require('./checkinsRoutes.js');
 
 module.exports = (app) => {
   app.use(
     express.json(),
     users,
     gyms,
-    checkins,
   );
   app.use(express.urlencoded({ extended: true }));
   app.use(cors());
