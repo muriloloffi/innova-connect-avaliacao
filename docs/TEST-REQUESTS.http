@@ -10,7 +10,10 @@ Content-Type: application/json
 }
 
 
-GET http://localhost:3000/user HTTP/1.1
+GET http://localhost:3000/users HTTP/1.1
+
+
+GET http://localhost:3000/user/1 HTTP/1.1
 
 
 PUT http://localhost:3000/user/update/1 HTTP/1.1

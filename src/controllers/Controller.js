@@ -12,6 +12,19 @@ class Controller {
     }
   }
 
+  async getOne(req, res) {
+    try {
+      const { id } = req.params;
+      const record = await this.entityService.getRecordById(Number(id));
+      if (!record) {
+        return res.status(404).json({ message: 'record not found' });
+      }
+      return res.status(200).json(record);
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
   async create(req, res) {
     try {
       const newRecordData = req.body;
@@ -27,7 +40,7 @@ class Controller {
       const { id } = req.params;
       const updatedRecordData = req.body;
       const wasRecordUpdated = await this.entityService.updateRecord(
-        id,
+        Number(id),
         updatedRecordData,
       );
       if (!wasRecordUpdated) {

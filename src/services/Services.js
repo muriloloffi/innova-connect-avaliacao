@@ -9,6 +9,10 @@ class Service {
     return dbEntities[this.modelName].findAll();
   }
 
+  async getRecordById(id) {
+    return dbEntities[this.modelName].findByPk(id);
+  }
+
   async createRecord(newRecordData) {
     return dbEntities[this.modelName].create(newRecordData);
   }
