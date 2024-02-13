@@ -13,8 +13,10 @@ const migrationsConfig = {
   logger: console,
 };
 
-// Here, I Build the seedConfig object; Following the example on https://github.com/sequelize/umzug/issues/24,
-// but adapting it to the ver. 3 of Umzug like the example above.
+// Here, I Build the seedConfig object; Following the example on
+// https://github.com/sequelize/umzug/issues/24, but adapting it
+// to the ver. 3 of Umzug like the example above. This automati-
+// cally seeds some default admin users into the database.
 const seedConfig = {
   migrations: {
     glob: 'src/seeders/*.js',
