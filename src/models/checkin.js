@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
      * automatically.
      */
     static associate(models) {
-      Checkin.hasOne(models.User, {
+      Checkin.belongsTo(models.User, {
         foreignKey: 'user_id',
         as: 'user',
       });
-      Checkin.hasOne(models.Gym, {
+      Checkin.belongsTo(models.Gym, {
         foreignKey: 'gym_id',
         as: 'gym',
       });
