@@ -9,6 +9,7 @@
         "sourceType": "module"
     },
     "rules": {
+        "no-unused-vars": "warn",
         "import/extensions": [
             "warn",
             "ignorePackages"
