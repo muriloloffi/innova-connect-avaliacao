@@ -26,6 +26,14 @@ class Service {
     }
     return true;
   }
+
+  async deleteRecord(id) {
+    const datum = await dbEntities[this.modelName].destroy({ where: { id } });
+    if (datum === 0) {
+      return false;
+    }
+    return true;
+  }
 }
 
 module.exports = Service;

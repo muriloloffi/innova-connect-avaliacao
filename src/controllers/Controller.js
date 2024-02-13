@@ -51,6 +51,23 @@ class Controller {
       return res.status(500).json({ message: error.message });
     }
   }
+
+  async delete(req, res) {
+    const { id } = req.params;
+    try {
+      const wasRecordDeleted = await this.entityService.deleteRecord(
+        Number(id),
+      );
+      if (!wasRecordDeleted) {
+        return res.status(404).json({ message: 'id not found' });
+      }
+      return res.status(200).json({
+        message: `id ${id} successfully deleted`,
+      });
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+  }
 }
 
 module.exports = Controller;

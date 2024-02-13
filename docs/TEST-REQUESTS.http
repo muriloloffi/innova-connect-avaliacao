@@ -23,3 +23,6 @@ Content-Type: application/json
     "name": "Sample2",
     "email": "sample@teste.com"
 }
+
+
+DELETE http://localhost:3000/user/delete/2 HTTP/1.1
