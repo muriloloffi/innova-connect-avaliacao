@@ -24,6 +24,15 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        name: 'José da Silva',
+        email: 'jose.silva@cmail.com',
+        password: '123456',
+        role: 'ROLE_USER',
+        active: true,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ], {});
   },
 
