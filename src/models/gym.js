@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Gym.belongsTo(models.User, {
-        foreignKey: 'UserId',
+        foreignKey: 'owner_id',
         as: 'owner',
       });
       Gym.hasMany(models.Checkin, {
