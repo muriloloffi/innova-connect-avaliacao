@@ -11,3 +11,12 @@ Content-Type: application/json
 
 
 GET http://localhost:3000/user HTTP/1.1
+
+
+PUT http://localhost:3000/user/update/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Sample2",
+    "email": "sample@teste.com"
+}

@@ -21,6 +21,23 @@ class Controller {
       return res.status(500).json({ message: error.message });
     }
   }
+
+  async update(req, res) {
+    try {
+      const { id } = req.params;
+      const updatedRecordData = req.body;
+      const wasRecordUpdated = await this.entityService.updateRecord(
+        id,
+        updatedRecordData,
+      );
+      if (!wasRecordUpdated) {
+        return res.status(400).json({ message: 'update failed' });
+      }
+      return res.status(200).json({ message: 'update successful' });
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
 }
 
 module.exports = Controller;
