@@ -15,7 +15,10 @@ module.exports = (sequelize, DataTypes) => {
      * automatically.
      */
     static associate(models) {
-      // define association here
+      Gym.hasOne(models.User, {
+        foreignKey: 'UserId',
+        as: 'owner',
+      });
     }
   }
   Gym.init({

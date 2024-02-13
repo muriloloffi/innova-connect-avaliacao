@@ -16,15 +16,25 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       description: {
         type: Sequelize.TEXT,
       },
       phone: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       coordinates: {
         type: Sequelize.GEOMETRY('POINT'),
+      },
+      owner_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +47,6 @@ module.exports = {
     });
   },
   async down({ context: queryInterface }) {
-    await queryInterface.dropTable('Gyms');
+    await queryInterface.dropTable('gyms');
   },
 };
