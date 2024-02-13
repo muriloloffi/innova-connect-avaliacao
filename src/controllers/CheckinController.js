@@ -12,7 +12,7 @@ class CheckinController extends Controller {
     try {
       const { userId, gymId } = req.params;
       const checkin = await this.entityService.createRecord(
-        { user_id: userId, gym_id: gymId },
+        { user_id: Number(userId), gym_id: Number(gymId) },
       );
       res.status(201).json(checkin);
     } catch (error) {
