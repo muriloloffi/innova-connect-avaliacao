@@ -23,7 +23,7 @@ const verifyToken = (req, res, next) => {
 };
 
 const isAdmin = async (req, res, next) => {
-  const user = await User.findByPk(req.userId);
+  const user = await User.findByPk(req.body.owner_id);
 
   if (user.role === 'ROLE_ADMIN') {
     next();
