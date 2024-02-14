@@ -1,5 +1,30 @@
 # Innova Connect Job Assessment
 
+## Requirements
+
+### Requisitos de negócio
+
+* <ins>Deve ser possível se cadastrar (Nome, E-mail e Senha); ✅<ins>
+* Deve ser possível se autenticar (E-mail e Senha);
+* <ins>Deve ser possível cadastrar uma academia (Nome, Descrição, Telefone, Latitude e longitude); ✅<ins>
+* <ins>Deve ser possível o usuário realizar check-in em uma academia; ✅<ins>
+* Deve ser possível obter o perfil de um usuário logado;
+* <ins>Deve ser possível o usuário obter o seu histórico de check-ins; ✅<ins>
+* Deve ser possível o usuário buscar academias pelo nome;
+
+### RNs (Regras de negócio)
+
+* <ins>O usuário não deve poder se cadastrar com um e-mail duplicado; ✅<ins>
+* <ins>O usuário não pode fazer 2 check-ins no mesmo dia; ✅<ins>
+* <ins>A academia só pode ser cadastrada por administradores; ✅<ins>
+
+### RNFs (Requisitos não-funcionais)
+
+* A senha do usuário precisa estar criptografada;
+* Todas listas de dados precisam estar paginadas com 20 itens por página;
+* O usuário deve ser identificado por um JWT (JSON Web Token);
+
+
 ## API architecture
 Clean/MVC with a service layer between the model and the controller
 
