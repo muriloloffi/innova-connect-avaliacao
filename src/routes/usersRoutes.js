@@ -14,6 +14,10 @@ router.delete(
   '/user/delete/:id',
   (req, res) => userController.delete(req, res),
 );
+router.get(
+  '/user/:userId/checkins',
+  (req, res) => userController.getCheckins(req, res),
+);
 router.post(
   '/user/:userId/checkin/:gymId',
   (req, res) => checkinController.create(req, res),
