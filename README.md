@@ -1,5 +1,25 @@
 # Innova Connect Job Assessment
 
+## What is this?
+An API for an Gym checkin app.
+
+### Requirements
+* sqlite3 driver
+* node18+
+
+### Installation
+Clone and run `npm install` inside the project's directory.
+Run `npm run dev`. The API should be available at localhost:3000.
+
+## Testing the API
+[en] Follow the instructions in [Docs](./docs/API-TESTING.md)
+
+[pt-br] Siga as instruções em [Docs](./docs/API-TESTING.md)
+
+## Data structure
+
+![alt database diagram](./docs/Diagrams/db_diagram.png "Database diagram")
+
 ## Priorities board
 
 [en] The project's requirements were broken in smaller tasks and organized in a board accessible [HERE](https://muriloloffi.notion.site/e2e345c247dc410bb080cc4d995bdc6f?v=c3c3c27ba3f34135a21479d746f65a74&pvs=4). A summary of the finished requirements from the original document can be found below as well.
@@ -43,8 +63,3 @@ validations and sanitizations.
 
 [pt-br] Para evitar requisições com conteúdo potencialmente maliciosos sejam 
 enviados pela API foi utilizado os métodos do pacote express-validate.
-
-## Testing the API
-[en] Follow the instructions in [Docs](./docs/API-TESTING.md)
-
-[pt-br] Siga as instruções em [Docs](./docs/API-TESTING.md)
