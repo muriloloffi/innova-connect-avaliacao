@@ -1,5 +1,11 @@
 # Innova Connect Job Assessment
 
+## Priorities board
+
+[en] The project's requirements were broken in smaller tasks and organized in a board accessible [HERE](https://muriloloffi.notion.site/e2e345c247dc410bb080cc4d995bdc6f?v=c3c3c27ba3f34135a21479d746f65a74&pvs=4). A summary of the finished requirements from the original document can be found below as well.
+
+[pt-br] Os requisitos do projeto foram quebrados em tarefas menores e organizadas em um quadro acessível [AQUI](https://muriloloffi.notion.site/e2e345c247dc410bb080cc4d995bdc6f?v=c3c3c27ba3f34135a21479d746f65a74&pvs=4). Um resumo dos requisitos concluídos do documento originail também pode ser encontrado abaixo.
+
 ## Requirements
 
 ### Requisitos de negócio
@@ -26,7 +32,9 @@
 
 
 ## API architecture
-Clean/MVC with a service layer between the model and the controller
+[en] "Clean" MVC with a service layer between the model and the controller.
+
+[pt-br] MVC "limpo" com uma camada de serviços entre o model e o controller.
 
 ## API data validation and sanitization
 [en] To avoid the intentional storage of potentially harmful data and incorrect
@@ -37,4 +45,6 @@ validations and sanitizations.
 enviados pela API foi utilizado os métodos do pacote express-validate.
 
 ## Testing the API
-[pt-br] Follow the instructions in [Docs](./docs/API-TESTING.md)
+[en] Follow the instructions in [Docs](./docs/API-TESTING.md)
+
+[pt-br] Siga as instruções em [Docs](./docs/API-TESTING.md)
