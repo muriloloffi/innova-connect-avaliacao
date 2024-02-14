@@ -5,7 +5,7 @@
 ### Requisitos de negócio
 
 * <ins>Deve ser possível se cadastrar (Nome, E-mail e Senha); ✅<ins>
-* Deve ser possível se autenticar (E-mail e Senha);
+* <ins>Deve ser possível se autenticar (E-mail e Senha);✅<ins>
 * <ins>Deve ser possível cadastrar uma academia (Nome, Descrição, Telefone, Latitude e longitude); ✅<ins>
 * <ins>Deve ser possível o usuário realizar check-in em uma academia; ✅<ins>
 * Deve ser possível obter o perfil de um usuário logado;
@@ -20,9 +20,9 @@
 
 ### RNFs (Requisitos não-funcionais)
 
-* A senha do usuário precisa estar criptografada;
+* <ins>A senha do usuário precisa estar criptografada;✅<ins>
 * Todas listas de dados precisam estar paginadas com 20 itens por página;
-* O usuário deve ser identificado por um JWT (JSON Web Token);
+* <ins>O usuário deve ser identificado por um JWT (JSON Web Token);✅<ins>
 
 
 ## API architecture
