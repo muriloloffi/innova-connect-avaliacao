@@ -1,7 +1,7 @@
 # Innova Connect Job Assessment
 
 ## What is this?
-An API for an Gym checkin app.
+An API for a Gym checkin app.
 
 ### Requirements
 * sqlite3 driver
