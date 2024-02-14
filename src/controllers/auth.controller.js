@@ -59,7 +59,7 @@ exports.signin = async (req, res) => {
       },
     );
 
-    req.session.token = token;
+    res.header('x-access-token', token);
 
     return res.status(200).json({
       id: user.id,
