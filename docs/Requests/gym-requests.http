@@ -15,6 +15,10 @@ Content-Type: application/json
 GET http://localhost:3000/gyms HTTP/1.1
 
 
+### Get all gyms
+GET http://localhost:3000/gyms?name=Gym%201 HTTP/1.1
+
+
 ### Get gym by id
 GET http://localhost:3000/gym/1 HTTP/1.1
 
