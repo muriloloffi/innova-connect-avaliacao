@@ -6,11 +6,13 @@ class GymServices extends Services {
     super('Gym');
   }
 
-  async getByName(name) {
+  async getByName(query) {
     return this.model.findAll({
       where: {
-        name: { [Op.like]: `%${name}%` },
+        name: { [Op.like]: `%${query.name}%` },
       },
+      offset: query.offset,
+      limit: query.limit,
     });
   }
 }

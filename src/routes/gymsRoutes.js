@@ -8,7 +8,9 @@ const gymController = new GymController();
 
 router.get(
   '/gyms',
-  query('name').escape(),
+  query('name').optional().escape(),
+  query('page').optional().escape().toInt(),
+  query('pageSize').optional().escape().toInt(),
   (req, res) => gymController.getAll(req, res),
 );
 router.get('/gym/:id', (req, res) => gymController.getOne(req, res));
