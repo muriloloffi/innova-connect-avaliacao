@@ -2,7 +2,7 @@ const { Op } = require('sequelize');
 const dbEntities = require('../models/index.js');
 const { paginate } = require('../utils/pagination.js');
 
-class Service {
+class Services {
   constructor(modelName) {
     this.model = dbEntities[modelName];
   }
@@ -43,4 +43,4 @@ class Service {
   }
 }
 
-module.exports = Service;
+module.exports = Services;
