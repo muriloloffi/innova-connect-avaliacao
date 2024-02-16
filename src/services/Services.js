@@ -1,12 +1,19 @@
+const { Op } = require('sequelize');
 const dbEntities = require('../models/index.js');
+const { paginate } = require('../utils/pagination.js');
 
 class Service {
   constructor(modelName) {
     this.model = dbEntities[modelName];
   }
 
-  async getAllRecords() {
-    return this.model.findAll();
+  async getAllRecords(query) {
+    return this.model.findAll(
+      paginate(
+        { where: { name: { [Op.like]: `%${query.name}%` } } },
+        { page: query.page, pageSize: query.pageSize },
+      ),
+    );
   }
 
   async getRecordById(id) {
