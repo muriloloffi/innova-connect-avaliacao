@@ -36,7 +36,7 @@ Run `npm run dev`. The API should be available at localhost:3000.
 * <ins>Deve ser possível o usuário realizar check-in em uma academia; ✅<ins>
 * Deve ser possível obter o perfil de um usuário logado;
 * <ins>Deve ser possível o usuário obter o seu histórico de check-ins; ✅<ins>
-* Deve ser possível o usuário buscar academias pelo nome;
+* <ins>Deve ser possível o usuário buscar academias pelo nome; ✅<ins>
 
 ### RNs (Regras de negócio)
 
