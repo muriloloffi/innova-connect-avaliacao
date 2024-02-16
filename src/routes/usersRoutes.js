@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const { param } = require('express-validator');
 const UserController = require('../controllers/UserController.js');
 const CheckinController = require('../controllers/CheckinController.js');
 
@@ -15,6 +16,7 @@ router.delete(
 );
 router.get(
   '/user/:userId/checkins',
+  [param('userId').trim().notEmpty().isInt()],
   (req, res) => userController.getCheckins(req, res),
 );
 router.post(
