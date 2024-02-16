@@ -12,6 +12,7 @@ class UserServices extends Services {
       {},
       { page: query.page, pageSize: query.pageSize },
     );
+    // TODO: Get checkins by user_id with just one db query
     const checkinsList = await user.getCheckins({ offset, limit });
     return checkinsList;
   }
