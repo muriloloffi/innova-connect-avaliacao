@@ -1,11 +1,16 @@
 const { Router } = require('express');
+const { query } = require('express-validator');
 const GymController = require('../controllers/GymController.js');
 const { authJwt } = require('../middleware/index.js');
 
 const router = Router();
 const gymController = new GymController();
 
-router.get('/gyms', (req, res) => gymController.getAll(req, res));
+router.get(
+  '/gyms',
+  query('name').escape(),
+  (req, res) => gymController.getAll(req, res),
+);
 router.get('/gym/:id', (req, res) => gymController.getOne(req, res));
 router.post(
   '/gym/create',
