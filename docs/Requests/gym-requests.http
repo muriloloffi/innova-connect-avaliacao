@@ -16,7 +16,9 @@ GET http://localhost:3000/gyms HTTP/1.1
 
 
 ### Get all gyms by name
-GET http://localhost:3000/gyms?name=gym%205 HTTP/1.1
+GET http://localhost:3000/gyms?name=gym%205 HTTP/1.1 
+# this query should return an error because there's no gym with
+# that name
 
 
 ### Get all gyms with page and limit
