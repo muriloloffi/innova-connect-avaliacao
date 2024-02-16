@@ -16,7 +16,7 @@ GET http://localhost:3000/gyms HTTP/1.1
 
 
 ### Get all gyms
-GET http://localhost:3000/gyms?name=Gym%201 HTTP/1.1
+GET http://localhost:3000/gyms?name=gym%201 HTTP/1.1
 
 
 ### Get gym by id
