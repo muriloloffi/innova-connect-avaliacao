@@ -18,7 +18,11 @@ class GymController extends Controller {
     const query = { name, page, pageSize };
 
     try {
-      const gym = await this.entityService.getAllRecords(query);
+      if (!query.name) {
+        const gym = await this.entityService.getAllRecords(query);
+        return res.status(200).json(gym);
+      }
+      const gym = await this.entityService.getByName(query);
 
       if (gym.length === 0) {
         return res.status(404).json({ message: 'gym not found' });

@@ -1,4 +1,3 @@
-const { Op } = require('sequelize');
 const dbEntities = require('../models/index.js');
 const { paginate } = require('../utils/pagination.js');
 
@@ -10,7 +9,7 @@ class Services {
   async getAllRecords(query) {
     return this.model.findAll(
       paginate(
-        { where: { name: { [Op.like]: `%${query.name}%` } } },
+        {},
         { page: query.page, pageSize: query.pageSize },
       ),
     );
