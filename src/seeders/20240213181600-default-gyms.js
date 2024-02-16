@@ -14,6 +14,22 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        name: 'Gym 2',
+        description: 'Gym 2 description',
+        phone: '123456789',
+        owner_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Gym 3',
+        description: 'Gym 3 description',
+        phone: '123456789',
+        owner_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ], {});
   },
 
