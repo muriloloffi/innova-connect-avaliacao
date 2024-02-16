@@ -2,23 +2,23 @@ const dbEntities = require('../models/index.js');
 
 class Service {
   constructor(modelName) {
-    this.modelName = modelName;
+    this.model = dbEntities[modelName];
   }
 
   async getAllRecords() {
-    return dbEntities[this.modelName].findAll();
+    return this.model.findAll();
   }
 
   async getRecordById(id) {
-    return dbEntities[this.modelName].findByPk(id);
+    return this.model.findByPk(id);
   }
 
   async createRecord(newRecordData) {
-    return dbEntities[this.modelName].create(newRecordData);
+    return this.model.create(newRecordData);
   }
 
   async updateRecord(id, updatedRecordData) {
-    const datum = dbEntities[this.modelName].update(updatedRecordData, {
+    const datum = this.model.update(updatedRecordData, {
       where: { id },
     });
     if (datum[0] === 0) {
@@ -28,7 +28,7 @@ class Service {
   }
 
   async deleteRecord(id) {
-    const datum = await dbEntities[this.modelName].destroy({ where: { id } });
+    const datum = await this.model.destroy({ where: { id } });
     if (datum === 0) {
       return false;
     }
