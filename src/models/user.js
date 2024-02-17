@@ -2,6 +2,7 @@
 
 'use strict';
 
+const bcrypt = require('bcryptjs');
 const {
   Model,
 } = require('sequelize');
@@ -46,5 +47,16 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'User',
     tableName: 'users',
   });
+
+  User.beforeUpdate(async (user, options) => {
+    const hashedPassword = await bcrypt.hash(
+      user.password,
+      await bcrypt.genSalt(8),
+    );
+
+    // eslint-disable-next-line no-param-reassign
+    user.password = hashedPassword;
+  });
+
   return User;
 };

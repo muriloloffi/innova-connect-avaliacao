@@ -31,7 +31,6 @@ router.put(
   '/user/update/:id',
   [
     param('id').trim().notEmpty().isInt(),
-    verifySignUp.checkDuplicateEmail,
     checkExact([...userDataValidators()]),
   ],
   errorHandling.handleValidation,
