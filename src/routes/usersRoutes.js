@@ -7,7 +7,10 @@ const {
 } = require('express-validator');
 const UserController = require('../controllers/UserController.js');
 const CheckinController = require('../controllers/CheckinController.js');
-const { paginationValidators } = require('../validators/queryValidators.js');
+const {
+  paginationQueryValidators,
+  userDataValidators,
+} = require('../validators/requestValidators.js');
 const { verifySignUp } = require('../middleware/index.js');
 
 const router = Router();
@@ -18,7 +21,7 @@ router.get(
   '/users',
   [
     query('name').optional().trim().escape(),
-    ...paginationValidators(),
+    ...paginationQueryValidators(),
   ],
   (req, res) => userController.getAll(req, res),
 );
@@ -32,11 +35,7 @@ router.put(
   [
     param('id').trim().notEmpty().isInt(),
     verifySignUp.checkDuplicateEmail,
-    checkExact([
-      body('name').optional().isString().escape(),
-      body('email').optional().isEmail().normalizeEmail(),
-      body('password').optional().isString().isLength({ min: 6 }),
-    ]),
+    checkExact([...userDataValidators()]),
   ],
   (req, res) => userController.update(req, res),
 );
@@ -51,7 +50,7 @@ router.get(
   '/user/:userId/checkins',
   [
     param('userId').trim().notEmpty().isInt(),
-    ...paginationValidators(),
+    ...paginationQueryValidators(),
   ],
   (req, res) => userController.getCheckins(req, res),
 );
