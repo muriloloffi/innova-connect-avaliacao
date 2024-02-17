@@ -13,10 +13,19 @@ router.get(
   [...paginationValidator()],
   (req, res) => userController.getAll(req, res),
 );
-router.get('/user/:id', (req, res) => userController.getOne(req, res));
-router.put('/user/update/:id', (req, res) => userController.update(req, res));
+router.get(
+  '/user/:id',
+  [param('id').trim().notEmpty().isInt()],
+  (req, res) => userController.getOne(req, res),
+);
+router.put(
+  '/user/update/:id',
+  [param('id').trim().notEmpty().isInt()],
+  (req, res) => userController.update(req, res),
+);
 router.delete(
   '/user/delete/:id',
+  [param('id').trim().notEmpty().isInt()],
   (req, res) => userController.delete(req, res),
 );
 

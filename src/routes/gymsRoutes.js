@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { query } = require('express-validator');
+const { query, param } = require('express-validator');
 const GymController = require('../controllers/GymController.js');
 const { authJwt } = require('../middleware/index.js');
 const { paginationValidator } = require('../validators/queryValidators.js');
@@ -15,7 +15,11 @@ router.get(
   ],
   (req, res) => gymController.getAll(req, res),
 );
-router.get('/gym/:id', (req, res) => gymController.getOne(req, res));
+router.get(
+  '/gym/:id',
+  [param('id').trim().notEmpty().isInt()],
+  (req, res) => gymController.getOne(req, res),
+);
 router.post(
   '/gym/create',
   [authJwt.isAdmin],
@@ -23,12 +27,18 @@ router.post(
 );
 router.put(
   '/gym/update/:id',
-  [authJwt.isAdmin],
+  [
+    param('id').trim().notEmpty().isInt(),
+    authJwt.isAdmin,
+  ],
   (req, res) => gymController.update(req, res),
 );
 router.delete(
   '/gym/delete/:id',
-  [authJwt.isAdmin],
+  [
+    param('id').trim().notEmpty().isInt(),
+    authJwt.isAdmin,
+  ],
   (req, res) => gymController.delete(req, res),
 );
 
