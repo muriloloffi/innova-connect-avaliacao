@@ -1,3 +1,4 @@
+const { validationResult } = require('express-validator');
 const Controller = require('./Controller.js');
 const UserServices = require('../services/UserServices.js');
 
@@ -9,12 +10,19 @@ class UserController extends Controller {
   }
 
   async getCheckins(req, res) {
+    if (validationResult(req).errors.length > 0) {
+      return res.status(400).json({ message: 'Invalid values for query' });
+    }
+
+    const { userId } = req.params;
+    const { page = 1, pageSize = 20 } = req.query;
+    const query = { userId, page, pageSize };
+
     try {
-      const { userId } = req.params;
-      const checkinsList = await this.entityService.getCheckinsByUser(userId);
-      res.status(200).json(checkinsList);
+      const checkinsList = await this.entityService.getCheckinsByUser(query);
+      return res.status(200).json(checkinsList);
     } catch (error) {
-      res.status(500).json({
+      return res.status(500).json({
         message: error.message,
       });
     }

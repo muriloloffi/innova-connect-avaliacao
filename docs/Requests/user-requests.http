@@ -20,7 +20,7 @@ Content-Type: application/json
 
 
 ### Get all users
-GET http://localhost:3000/users HTTP/1.1
+GET http://localhost:3000/users?pageSize=10 HTTP/1.1
 
 
 ### Get user by id
@@ -33,7 +33,9 @@ Content-Type: application/json
 
 {
     "name": "Sample2",
-    "email": "sample@teste.com"
+    "email": "sample@teste.com",
+    "password": "123456",
+    "foo": "bar"
 }
 
 
