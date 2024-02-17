@@ -1,9 +1,9 @@
 const { Router } = require('express');
 const { query, param } = require('express-validator');
 const GymController = require('../controllers/GymController.js');
-const { authJwt } = require('../middleware/index.js');
+const { authJwt, errorHandling } = require('../middleware/index.js');
 const {
-  paginationQueryValidators,
+  paginationQueryValidators, gymDataValidators,
 } = require('../validators/requestValidators.js');
 
 const router = Router();
@@ -15,16 +15,22 @@ router.get(
     query('name').optional().escape(),
     ...paginationQueryValidators(),
   ],
+  errorHandling.handleValidation,
   (req, res) => gymController.getAll(req, res),
 );
 router.get(
   '/gym/:id',
   [param('id').trim().notEmpty().isInt()],
+  errorHandling.handleValidation,
   (req, res) => gymController.getOne(req, res),
 );
 router.post(
   '/gym/create',
-  [authJwt.isAdmin],
+  [
+    ...gymDataValidators(),
+    authJwt.isAdmin,
+  ],
+  errorHandling.handleValidation,
   (req, res) => gymController.create(req, res),
 );
 router.put(
@@ -33,6 +39,7 @@ router.put(
     param('id').trim().notEmpty().isInt(),
     authJwt.isAdmin,
   ],
+  errorHandling.handleValidation,
   (req, res) => gymController.update(req, res),
 );
 router.delete(
@@ -41,6 +48,7 @@ router.delete(
     param('id').trim().notEmpty().isInt(),
     authJwt.isAdmin,
   ],
+  errorHandling.handleValidation,
   (req, res) => gymController.delete(req, res),
 );
 
