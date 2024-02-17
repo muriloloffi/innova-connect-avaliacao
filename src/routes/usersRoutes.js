@@ -1,8 +1,14 @@
 const { Router } = require('express');
-const { param } = require('express-validator');
+const {
+  query,
+  param,
+  checkExact,
+  body,
+} = require('express-validator');
 const UserController = require('../controllers/UserController.js');
 const CheckinController = require('../controllers/CheckinController.js');
-const { paginationValidator } = require('../validators/queryValidators.js');
+const { paginationValidators } = require('../validators/queryValidators.js');
+const { verifySignUp } = require('../middleware/index.js');
 
 const router = Router();
 const userController = new UserController();
@@ -10,7 +16,10 @@ const checkinController = new CheckinController();
 
 router.get(
   '/users',
-  [...paginationValidator()],
+  [
+    query('name').optional().trim().escape(),
+    ...paginationValidators(),
+  ],
   (req, res) => userController.getAll(req, res),
 );
 router.get(
@@ -20,7 +29,15 @@ router.get(
 );
 router.put(
   '/user/update/:id',
-  [param('id').trim().notEmpty().isInt()],
+  [
+    param('id').trim().notEmpty().isInt(),
+    verifySignUp.checkDuplicateEmail,
+    checkExact([
+      body('name').optional().isString().escape(),
+      body('email').optional().isEmail().normalizeEmail(),
+      body('password').optional().isString().isLength({ min: 6 }),
+    ]),
+  ],
   (req, res) => userController.update(req, res),
 );
 router.delete(
@@ -34,7 +51,7 @@ router.get(
   '/user/:userId/checkins',
   [
     param('userId').trim().notEmpty().isInt(),
-    ...paginationValidator(),
+    ...paginationValidators(),
   ],
   (req, res) => userController.getCheckins(req, res),
 );

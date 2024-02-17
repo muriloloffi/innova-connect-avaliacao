@@ -2,7 +2,7 @@ const { Router } = require('express');
 const { query, param } = require('express-validator');
 const GymController = require('../controllers/GymController.js');
 const { authJwt } = require('../middleware/index.js');
-const { paginationValidator } = require('../validators/queryValidators.js');
+const { paginationValidators } = require('../validators/queryValidators.js');
 
 const router = Router();
 const gymController = new GymController();
@@ -11,7 +11,7 @@ router.get(
   '/gyms',
   [
     query('name').optional().escape(),
-    ...paginationValidator(),
+    ...paginationValidators(),
   ],
   (req, res) => gymController.getAll(req, res),
 );

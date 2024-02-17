@@ -47,7 +47,7 @@ Run `npm run dev`. The API should be available at localhost:3000.
 ### RNFs (Requisitos não-funcionais)
 
 * <ins>A senha do usuário precisa estar criptografada;✅<ins>
-* Todas listas de dados precisam estar paginadas com 20 itens por página;
+* <ins>Todas listas de dados precisam estar paginadas com 20 itens por página; ✅<ins>
 * <ins>O usuário deve ser identificado por um JWT (JSON Web Token);✅<ins>
 
 

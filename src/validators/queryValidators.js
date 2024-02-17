@@ -1,6 +1,6 @@
 const { query } = require('express-validator');
 
-exports.paginationValidator = () => [
+exports.paginationValidators = () => [
   query('page').optional().escape()
     .isInt({ min: 1 })
     .toInt(),
