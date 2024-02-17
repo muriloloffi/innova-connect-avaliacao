@@ -24,8 +24,9 @@ class Services {
   }
 
   async updateRecord(id, updatedRecordData) {
-    const datum = this.model.update(updatedRecordData, {
+    const datum = await this.model.update(updatedRecordData, {
       where: { id },
+      individualHooks: true,
     });
     if (datum[0] === 0) {
       return false;

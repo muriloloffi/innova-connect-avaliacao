@@ -9,7 +9,7 @@ class AuthController {
       const user = await User.create({
         name: req.body.name,
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 8),
+        password: await bcrypt.hash(req.body.password, await bcrypt.genSalt(8)),
         role: 'ROLE_USER',
         active: true,
       });
@@ -41,7 +41,7 @@ class AuthController {
         return res.status(404).json({ message: 'User Not Found' });
       }
 
-      const passwordIsValid = bcrypt.compareSync(
+      const passwordIsValid = await bcrypt.compare(
         req.body.password,
         user.password,
       );

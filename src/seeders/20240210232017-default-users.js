@@ -11,7 +11,7 @@ module.exports = {
       {
         name: 'João da Silva',
         email: 'joao.silva@supergym.com',
-        password: bcrypt.hashSync('123456', 8),
+        password: await bcrypt.hash('123456', await bcrypt.genSalt(8)),
         role: 'ROLE_ADMIN',
         active: true,
         createdAt: new Date(),
@@ -20,7 +20,7 @@ module.exports = {
       {
         name: 'Maria da Silva',
         email: 'maria.silva@supergym.com',
-        password: bcrypt.hashSync('123456', 8),
+        password: await bcrypt.hash('123456', await bcrypt.genSalt(8)),
         role: 'ROLE_ADMIN',
         active: true,
         createdAt: new Date(),
@@ -29,7 +29,7 @@ module.exports = {
       {
         name: 'José da Silva',
         email: 'jose.silva@cmail.com',
-        password: bcrypt.hashSync('123456', 8),
+        password: await bcrypt.hash('123456', await bcrypt.genSalt(8)),
         role: 'ROLE_USER',
         active: true,
         createdAt: new Date(),
