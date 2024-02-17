@@ -1,17 +1,12 @@
 const { Router } = require('express');
-const {
-  query,
-  param,
-  checkExact,
-  body,
-} = require('express-validator');
+const { query, param, checkExact } = require('express-validator');
 const UserController = require('../controllers/UserController.js');
 const CheckinController = require('../controllers/CheckinController.js');
 const {
   paginationQueryValidators,
   userDataValidators,
 } = require('../validators/requestValidators.js');
-const { verifySignUp } = require('../middleware/index.js');
+const { verifySignUp, errorHandling } = require('../middleware/index.js');
 
 const router = Router();
 const userController = new UserController();
@@ -23,11 +18,13 @@ router.get(
     query('name').optional().trim().escape(),
     ...paginationQueryValidators(),
   ],
+  errorHandling.handleValidation,
   (req, res) => userController.getAll(req, res),
 );
 router.get(
   '/user/:id',
   [param('id').trim().notEmpty().isInt()],
+  errorHandling.handleValidation,
   (req, res) => userController.getOne(req, res),
 );
 router.put(
@@ -37,11 +34,13 @@ router.put(
     verifySignUp.checkDuplicateEmail,
     checkExact([...userDataValidators()]),
   ],
+  errorHandling.handleValidation,
   (req, res) => userController.update(req, res),
 );
 router.delete(
   '/user/delete/:id',
   [param('id').trim().notEmpty().isInt()],
+  errorHandling.handleValidation,
   (req, res) => userController.delete(req, res),
 );
 
@@ -52,6 +51,7 @@ router.get(
     param('userId').trim().notEmpty().isInt(),
     ...paginationQueryValidators(),
   ],
+  errorHandling.handleValidation,
   (req, res) => userController.getCheckins(req, res),
 );
 router.post(
@@ -60,6 +60,7 @@ router.post(
     param('userId').trim().notEmpty().isInt(),
     param('gymId').trim().notEmpty().isInt(),
   ],
+  errorHandling.handleValidation,
   (req, res) => checkinController.create(req, res),
 );
 

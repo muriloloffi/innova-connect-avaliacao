@@ -20,7 +20,7 @@ Content-Type: application/json
 
 
 ### Get all users
-GET http://localhost:3000/users?pageSize=10 HTTP/1.1
+GET http://localhost:3000/users?pageSize=2 HTTP/1.1
 
 
 ### Get user by id

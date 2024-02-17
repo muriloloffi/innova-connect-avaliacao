@@ -16,6 +16,18 @@ exports.userDataValidators = () => [
   body('password').optional().isString().isLength({ min: 6 }),
 ];
 
+exports.gymDataValidators = () => [
+  body('name').escape().trim().isString(),
+  body('latitude').optional().escape().trim()
+    .isFloat({ min: -90, max: 90 }),
+  body('longitude').optional().escape().trim()
+    .isFloat({ min: -180, max: 180 }),
+  body('description').optional().escape().trim()
+    .isString(),
+  body('phone').isMobilePhone().escape().trim(),
+  body('active').optional().isBoolean(),
+];
+
 exports.loginValidators = () => [
   body('email').isEmail().normalizeEmail(),
   body('password').isString().isLength({ min: 6 }),
