@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { query, param } = require('express-validator');
+const { query, param, checkExact } = require('express-validator');
 const GymController = require('../controllers/GymController.js');
 const { authJwt, errorHandling } = require('../middleware/index.js');
 const {
@@ -27,8 +27,8 @@ router.get(
 router.post(
   '/gym/create',
   [
-    ...gymDataValidators(),
     authJwt.isAdmin,
+    checkExact([...gymDataValidators()]),
   ],
   errorHandling.handleValidation,
   (req, res) => gymController.create(req, res),
@@ -38,6 +38,7 @@ router.put(
   [
     param('id').trim().notEmpty().isInt(),
     authJwt.isAdmin,
+    checkExact([...gymDataValidators()]),
   ],
   errorHandling.handleValidation,
   (req, res) => gymController.update(req, res),
