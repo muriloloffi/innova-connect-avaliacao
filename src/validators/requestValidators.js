@@ -1,16 +1,17 @@
 const { query, body } = require('express-validator');
 
 exports.paginationQueryValidators = () => [
-  query('page').optional().escape()
+  query('page').optional().escape().trim()
     .isInt({ min: 1 })
     .toInt(),
-  query('pageSize').optional().escape()
+  query('pageSize').optional().escape().trim()
     .isInt({ min: 1, max: 20 })
     .toInt(),
 ];
 
 exports.userDataValidators = () => [
-  body('name').optional().isString().escape(),
+  body('name').optional().escape().trim()
+    .isString(),
   body('email').optional().isEmail().normalizeEmail(),
   body('password').optional().isString().isLength({ min: 6 }),
 ];
