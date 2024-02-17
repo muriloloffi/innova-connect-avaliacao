@@ -1,11 +1,21 @@
+const { validationResult } = require('express-validator');
+
 class Controller {
   constructor(entityService) {
     this.entityService = entityService;
   }
 
   async getAll(req, res) {
+    if (validationResult(req).errors.length > 0) {
+      return res.status(400).json({ message: 'Invalid values for query' });
+    }
+
+    const { page = 1, pageSize = 20 } = req.query;
+
     try {
-      const recordsList = await this.entityService.getAllRecords();
+      const recordsList = await this.entityService.getAllRecords(
+        { page, pageSize },
+      );
       return res.status(200).json(recordsList);
     } catch (error) {
       return res.status(500).json({ message: error.message });
