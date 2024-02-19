@@ -3,6 +3,8 @@
 ## What is this?
 An API for a Gym checkin app.
 
+See front-end [here](https://github.com/muriloloffi/front-innova-connect-avaliacao).
+
 ### Requirements
 * sqlite3 driver
 * node18+
