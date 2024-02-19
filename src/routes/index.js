@@ -23,7 +23,9 @@ module.exports = (app) => {
     gyms,
     auth,
   );
-  app.use(cors({ origin: 'http://localhost:5173/' }));
+  app.use(cors({ origin: '*', methods: '*', allowedHeaders: '*' }));
+  app.options('*', cors());
+  app.del('*', cors());
   app.use(
     session({
       // store: redisStore,
