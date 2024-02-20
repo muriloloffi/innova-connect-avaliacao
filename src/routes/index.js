@@ -18,14 +18,7 @@ const auth = require('./authRoutes.js');
 module.exports = (app) => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-  app.use(
-    users,
-    gyms,
-    auth,
-  );
-  app.use(cors({ origin: '*', methods: '*', allowedHeaders: '*' }));
-  app.options('*', cors());
-  app.del('*', cors());
+  app.use(cors());
   app.use(
     session({
       // store: redisStore,
@@ -34,5 +27,10 @@ module.exports = (app) => {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
     }),
+  );
+  app.use(
+    users,
+    gyms,
+    auth,
   );
 };

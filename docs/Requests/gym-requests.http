@@ -1,5 +1,5 @@
 ### Create Gym
-POST http://localhost:3000/gym/create HTTP/1.1
+POST http://localhost:8080/gym/create HTTP/1.1
 Content-Type: application/json
 
 {
@@ -12,25 +12,25 @@ Content-Type: application/json
 
 
 ### Get all gyms
-GET http://localhost:3000/gyms HTTP/1.1
+GET http://localhost:8080/gyms HTTP/1.1
 
 
 ### Get all gyms by name
-GET http://localhost:3000/gyms?name=gym%205 HTTP/1.1 
+GET http://localhost:8080/gyms?name=gym%205 HTTP/1.1 
 # this query should return an error because there's no gym with
 # that name
 
 
 ### Get all gyms with page and limit
-GET http://localhost:3000/gyms?page=1&pageSize=2 HTTP/1.1
+GET http://localhost:8080/gyms?page=1&pageSize=2 HTTP/1.1
 
 
 ### Get gym by id
-GET http://localhost:3000/gym/1 HTTP/1.1
+GET http://localhost:8080/gym/1 HTTP/1.1
 
 
 ### Update gym
-PUT http://localhost:3000/gym/update/1 HTTP/1.1
+PUT http://localhost:8080/gym/update/1 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -43,4 +43,4 @@ Content-Type: application/json
 
 
 ### Delete gym
-DELETE http://localhost:3000/gym/delete/2 HTTP/1.1
+DELETE http://localhost:8080/gym/delete/2 HTTP/1.1
